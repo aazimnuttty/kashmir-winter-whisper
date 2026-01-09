@@ -1,96 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Winter Kashmir Design System - Premium, Calm, Cozy but Adventurous */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Winter Palette */
+    --background: 210 30% 98%;
+    --foreground: 210 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Icy Blue Primary */
+    --primary: 200 65% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft Winter Secondary */
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 210 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Winter Tones */
+    --muted: 210 15% 92%;
+    --muted-foreground: 210 12% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Pine Green Accent */
+    --accent: 160 35% 35%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* CTA Colors */
+    --cta-primary: 348 75% 45%;
+    --cta-primary-foreground: 0 0% 100%;
+    --cta-secondary: 142 65% 35%;
+    --cta-secondary-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* Borders & Inputs */
+    --border: 210 20% 88%;
+    --input: 210 20% 92%;
+    --ring: 200 65% 45%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.75rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Winter Gradients */
+    --gradient-frost: linear-gradient(135deg, hsl(200 25% 97%) 0%, hsl(210 30% 94%) 50%, hsl(200 20% 92%) 100%);
+    --gradient-ice: linear-gradient(180deg, hsl(200 30% 96%) 0%, hsl(210 25% 98%) 100%);
+    --gradient-snow: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 20% 97%) 100%);
+    --gradient-night-sky: linear-gradient(180deg, hsl(210 35% 20%) 0%, hsl(210 30% 35%) 100%);
+    --gradient-card-frost: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95) 0%, hsla(210, 30%, 98%, 0.9) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-frost: 0 4px 20px -2px hsla(210, 30%, 40%, 0.08), 0 2px 8px -2px hsla(210, 30%, 40%, 0.04);
+    --shadow-frost-lg: 0 8px 40px -4px hsla(210, 30%, 40%, 0.12), 0 4px 16px -4px hsla(210, 30%, 40%, 0.06);
+    --shadow-glow: 0 0 30px hsla(200, 65%, 45%, 0.15);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 210 25% 97%;
+    --sidebar-foreground: 210 25% 25%;
+    --sidebar-primary: 200 65% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 94%;
+    --sidebar-accent-foreground: 210 25% 25%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 200 65% 45%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 30% 8%;
+    --foreground: 210 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 25% 12%;
+    --card-foreground: 210 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 25% 12%;
+    --popover-foreground: 210 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 200 60% 55%;
+    --primary-foreground: 210 30% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 210 15% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 20% 20%;
+    --muted-foreground: 210 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 160 40% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 210 20% 20%;
+    --input: 210 20% 18%;
+    --ring: 200 60% 55%;
+
+    --sidebar-background: 210 25% 10%;
+    --sidebar-foreground: 210 15% 90%;
+    --sidebar-primary: 200 60% 55%;
+    --sidebar-primary-foreground: 210 30% 8%;
+    --sidebar-accent: 210 20% 15%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 210 20% 18%;
+    --sidebar-ring: 200 60% 55%;
   }
 }
 
@@ -99,7 +119,141 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Frosted Glass Effect */
+  .glass-frost {
+    @apply bg-white/80 backdrop-blur-xl border border-white/40;
+    box-shadow: var(--shadow-frost);
+  }
+
+  .glass-frost-dark {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Premium Card Styles */
+  .card-winter {
+    @apply bg-white rounded-xl overflow-hidden;
+    background: var(--gradient-card-frost);
+    box-shadow: var(--shadow-frost);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-winter:hover {
+    box-shadow: var(--shadow-frost-lg);
+    transform: translateY(-4px);
+  }
+
+  /* Section Title Styles */
+  .section-subtitle {
+    @apply text-sm font-medium uppercase tracking-widest text-primary mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Winter Button Styles */
+  .btn-winter-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300;
+    background: hsl(var(--cta-primary));
+    color: hsl(var(--cta-primary-foreground));
+    box-shadow: 0 4px 14px hsla(348, 75%, 45%, 0.3);
+  }
+
+  .btn-winter-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(348, 75%, 45%, 0.4);
+  }
+
+  .btn-winter-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300;
+    background: hsl(var(--cta-secondary));
+    color: hsl(var(--cta-secondary-foreground));
+    box-shadow: 0 4px 14px hsla(142, 65%, 35%, 0.3);
+  }
+
+  .btn-winter-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(142, 65%, 35%, 0.4);
+  }
+
+  .btn-winter-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300;
+    background: hsla(0, 0%, 100%, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid hsla(0, 0%, 100%, 0.3);
+  }
+
+  .btn-winter-ghost:hover {
+    background: hsla(0, 0%, 100%, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Input Frost Style */
+  .input-frost {
+    @apply w-full px-4 py-3 rounded-lg bg-white/80 backdrop-blur-sm border border-white/40 text-foreground placeholder:text-muted-foreground transition-all duration-300;
+    box-shadow: 0 2px 8px hsla(210, 30%, 40%, 0.04);
+  }
+
+  .input-frost:focus {
+    @apply outline-none ring-2 ring-primary/30 border-primary/50;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Strock Text for Winter */
+  .strock-text {
+    @apply text-7xl md:text-8xl lg:text-9xl font-bold uppercase tracking-widest opacity-5 select-none;
+    -webkit-text-stroke: 2px hsl(var(--foreground));
+    color: transparent;
+  }
+
+  /* Snowfall Animation Container */
+  .snowfall-container {
+    @apply fixed inset-0 pointer-events-none overflow-hidden z-50;
+  }
+
+  .snowflake {
+    @apply absolute bg-white rounded-full opacity-80;
+    filter: blur(1px);
+  }
+}
+
+@layer utilities {
+  /* Smooth scroll reveal offset */
+  .reveal-offset {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  /* Parallax helper */
+  .parallax-slow {
+    will-change: transform;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-offset,
+    .parallax-slow,
+    .snowflake {
+      transform: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+    }
   }
 }
