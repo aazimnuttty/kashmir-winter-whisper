@@ -1,6 +1,55 @@
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { useState } from 'react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Send } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
+
+declare global {
+  interface Window {
+    gtag: (...args: unknown[]) => void;
+  }
+}
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const form = new FormData();
+      form.append('email', email.trim());
+      form.append('form_type', 'newsletter');
+
+      await fetch('/submit.php', {
+        method: 'POST',
+        body: form,
+      });
+
+      // Fire Google Ads conversion event
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-16973182665/YNU5CNfosrMaEMntuJ0_'
+        });
+      }
+
+      toast({
+        title: "Subscribed!",
+        description: "Thank you for subscribing to our newsletter.",
+      });
+
+      setEmail('');
+    } catch (error) {
+      toast({
+        title: "Subscription Failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-foreground text-white py-16">
       <div className="container mx-auto px-4">
@@ -54,27 +103,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Popular Packages */}
+          {/* Newsletter */}
           <div>
-            <h4 className="font-display text-lg font-bold mb-6">Popular Packages</h4>
-            <ul className="space-y-3">
-              {[
-                'Kashmir Family Tour',
-                'Honeymoon Trip',
-                'Incredible Kashmir',
-                'Best of Kashmir',
-                'Adventure Tour',
-              ].map((pkg) => (
-                <li key={pkg}>
-                  <a
-                    href="#packages"
-                    className="text-white/70 hover:text-white hover:pl-2 transition-all duration-300"
-                  >
-                    {pkg}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <h4 className="font-display text-lg font-bold mb-6">Newsletter</h4>
+            <p className="text-white/70 mb-4">
+              Subscribe for exclusive winter deals and travel updates.
+            </p>
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  required
+                  maxLength={255}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-primary transition-colors"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 rounded-lg bg-primary text-white font-medium flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors disabled:opacity-50"
+              >
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
           </div>
 
           {/* Contact */}
